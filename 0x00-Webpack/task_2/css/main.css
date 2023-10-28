@@ -6,6 +6,6 @@
 }
 
 #count {
+ display: inline-block;
  font-weight: bold;
- display: inline;
 }
