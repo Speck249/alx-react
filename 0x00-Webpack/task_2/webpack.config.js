@@ -21,8 +21,8 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
         use: ['file-loader'],
       },
-
     ],
+  },
 
   performance: {
     maxAssetSize: 900 * 1024,
