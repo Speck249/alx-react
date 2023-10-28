@@ -6,14 +6,16 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   entry: {
-    header: './src/header.js',
-    body: './src/body.js',
-    footer: './src/footer.js',
+    header: './modules/header/header.js',
+    body: './modules/body/body.js',
+    footer: './modules/footer/footer.js',
   },
+
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'public'),
   },
+
   module: {
     rules: [
       {
@@ -22,6 +24,7 @@ module.exports = {
       },
     ],
   },
+
   devtool: 'inline-source-map',
   devServer: {
     port: 8564,
@@ -29,15 +32,17 @@ module.exports = {
       directory: path.resolve(__dirname, 'public'),
     },
   },
+
   optimization: {
     splitChunks: {
       chunks: 'all',
     },
   },
+
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './index.html',
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
