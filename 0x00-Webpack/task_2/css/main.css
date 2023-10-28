@@ -6,7 +6,7 @@
 }
 
 #count {
- font-weight: bold;;
- display: inline;
- margin: 0;
+ font-weight: bold;
+ display: inline-block;
+ margin: 20px;
 }
