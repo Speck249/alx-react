@@ -16,10 +16,20 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-
       {
         test: /\.(png|jpg|jpeg|gif|svg)$/,
         use: ['file-loader'],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        use: [
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              // Configure image-webpack-loader options here
+            },
+          },
+        ],
       },
     ],
   },
