@@ -1,4 +1,4 @@
-import { getFullYear } from './utils.js';
+import { getFullYear, getFooterCopy, getLatestNotification } from './utils.js';
 
 test('getFullYear function returns current Gregorian year', () => {
   const currentYear = new Date().getFullYear();
