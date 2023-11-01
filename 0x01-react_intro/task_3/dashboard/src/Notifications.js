@@ -1,9 +1,9 @@
 import React from 'react';
-import './Notification.css'; 
+import './Notifications.css'; 
 import icon from './close-icon.png';
 import { getLatestNotification } from './utils.js';
 
-export default function Notification() {
+export default function Notifications() {
   return (
     <div className="Notifications">
       <p>Here is the list of notifications</p>
