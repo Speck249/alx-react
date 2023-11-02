@@ -1,0 +1,16 @@
+.Notifications {
+  border: 4px solid black;
+  padding: 1em;
+}
+
+li {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+li[data="default"] {
+  color: blue;
+}
+
+li[data="urgent"] {
+  color: #e1003c;
+}
