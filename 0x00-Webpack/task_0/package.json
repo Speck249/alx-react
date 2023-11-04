@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack"
   },
-  "author": "",
+  "author": "RGK",
   "license": "ISC",
   "devDependencies": {
     "webpack": "^5.89.0",
