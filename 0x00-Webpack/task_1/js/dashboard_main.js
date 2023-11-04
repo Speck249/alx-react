@@ -1,19 +1,20 @@
 import $ from 'jquery';
-import _ from 'lodash';
+import { __ } from 'lodash';
 
-let count = 0;
+$(function() {
+    // note that (document).on('ready', handler) been deprecated since 
+    // jQuery 1.8 and removed in jQuery 3.0.
+    $('body').append($("<p></p>").text("Holberton Dashboard"));
+    $('body').append($("<p></p>").text("Dashboard data for the students"));
+    $('body').append($("<button id='btn1'></button>").text("Click here to get started"));
+    $('body').append($("<p></p>").text("<p id='count'></p>"));
+    $('body').append($("<p></p>").text("Copyright - Holberton School"));
 
-function updateCounter() {
-  count++;
-  $('#count').text(`${count} clicks on the button`);
-}
+    let counter = 0;
+    function updateCounter() {
+      counter++;
+      $('#count').text("${count} clicks on the button");        
+    }
 
-$(document).ready(function() {
-  $('body').append('<p>Holberton Dashboard</p>');
-  $('body').append('<p>Dashboard data for the students</p>');
-  $('body').append('<button id="btn">Click here to get started</button>');
-  $('body').append('<p id="count"></p>');
-  $('body').append('<p>Copyright - Holberton School</p>');
-
-  $('#btn').on('click', _.debounce(updateCounter, 500));
+    $('#btn1').on('click', _.debounce(updateCounter, 500));
 });
