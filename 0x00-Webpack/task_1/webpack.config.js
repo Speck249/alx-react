@@ -1,12 +1,14 @@
 const path = require('path');
 
 module.exports = {
-  entry: {
-    path: path.resolve(__dirname, './js/dashboard_main.js')
-  },
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public'),
-  },
   mode: 'production',
+  entry: path.resolve(__dirname, 'js', 'dashboard_main.js'),
+  output: {
+    path: path.resolve(__dirname, 'public'),
+    filename: 'bundle.js',
+    watch: true,
+    watchOptions: {
+      ignored: /node_modules/
+    }
+  }
 };
