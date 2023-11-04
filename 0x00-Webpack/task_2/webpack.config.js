@@ -26,15 +26,32 @@ module.exports = {
           {
             loader: 'image-webpack-loader',
             options: {
-              // Configure image-webpack-loader options here
+              bypassOnDebug: true, 
+              disable: process.env.NODE_ENV === 'production', // Disable in production
+              mozjpeg: {
+                progressive: true,
+                quality: 65,
+              },
+              // Optimize PNG images with pngquant
+              pngquant: {
+                quality: [0.65, 0.90],
+                speed: 4,
+              },
+              // Optimize GIF images
+              gifsicle: {
+                interlaced: false,
+              },
+              // Optimize SVG images
+              svgo: {
+                plugins: [
+                  { removeViewBox: false },
+                  { removeEmptyAttrs: false },
+                ],
+              },
             },
           },
         ],
       },
     ],
-  },
-
-  performance: {
-    maxAssetSize: 900 * 1024,
   },
 };
