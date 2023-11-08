@@ -1,24 +1,22 @@
-import hLogo from './holberton_logo.jpg';
+import React from 'react';
 import './App.css';
-
+import logo from './holberton-logo.jpg';
 
 function App() {
   return (
-    <div className="App-function">
-      <div className="App-header">
-        <img src={hLogo} alt="Holberton Logo">
+    <div className='App'>
+      <header className='App-header'>
+        <img src={logo} alt='Holberton Logo' />
         <h1>School dashboard</h1>
-      </div>
-
-      <div className="App-body">
+      </header>
+      <div className='App-body'>
         <p>Login to access the full dashboard</p>
       </div>
-
-      <div className="App-footer">
-        <p>Copyright 2020 - holberton School</p>
-      </div>
+      <footer className='App-footer'>
+        <p>Copyright 2020 - holberton School</p> 
+      </footer>
     </div>
-  );
-}
+  )
+};
 
 export default App;
