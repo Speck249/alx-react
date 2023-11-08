@@ -12,9 +12,13 @@ export function getFooterCopy(isIndex) {
   }
 }
 
+export function getLatestNotification() {
+  return '<strong>Urgent requirement</strong> - complete by EOD';
+}
+
 const defaultExport = {
   //default export content
-  getFullYear, getFooterCopy
+  getFullYear, getFooterCopy, getLatestNotification
 };
 
 export default defaultExport;
