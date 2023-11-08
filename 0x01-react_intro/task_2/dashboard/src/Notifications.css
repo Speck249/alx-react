@@ -2,3 +2,23 @@
   border: 2px dashed #e1003c;
   padding: 1.2em;
 }
+
+.close-icon img {
+  display: inline;
+  width: 7px;
+  height: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+ul li[data='default'] {
+  color: blue;
+}
+
+ul li[data='urgent'] {
+  color: #e1003c; 
+}
