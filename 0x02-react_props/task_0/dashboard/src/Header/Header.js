@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import './Header.css';
 import logo from './holberton-logo.jpg';
 
-function App() {
+function Header() {
   return (
-    <div className='App'>
+    <div className='Header'>
       <header className='App-header'>
         <img src={logo} alt='Holberton Logo' />
         <h1>School dashboard</h1>
@@ -12,3 +12,5 @@ function App() {
     </div>
   )
 };
+
+export default Header;
