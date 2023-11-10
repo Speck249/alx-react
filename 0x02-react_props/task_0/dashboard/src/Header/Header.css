@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  height: 60vh;
+  font-family: Aktivgrotesk, Arial, sans-serif;
+}
+
+.App-header img {
+  width: 140px;
+  height: 140px;
+}
+
+.App-header h1 {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #e1003c;
+}
