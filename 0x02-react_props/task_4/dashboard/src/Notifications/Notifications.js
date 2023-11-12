@@ -6,6 +6,9 @@ import NotificationItem from './NotificationItem.js'; // Assuming the correct pa
 
 function Notifications() {
   return (
+    <div className='menuItem'>
+      <p>Your notifications</p>
+    </div>
     <div className='Notifications'>
       <p>Here is the list of notifications</p>
       <button className='close-icon' aria-label='Close' onClick={() => console.log('Close button has been clicked')}>
