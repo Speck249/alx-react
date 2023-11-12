@@ -1,21 +1,17 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import NotificationItem from './NotificationItem';
+import NotificationItem from 'NotificationItem.js';
+import { shallow } from 'enzyme';
 
-describe('NotificationItem', () => {
-  it('renders without crashing', () => {
-    render(<NotificationItem type="default" value="test" />);
+
+describe('NotificationItem component', () => {
+  const minprops = { type='default', value='test', html= { __html: '<u>test</u>' } };
+  it('should render without crashing', () => {
+    shallow(<NotificationItem {...minprops} />);
   });
 
-  it('renders correct html based on type and value props', () => {
-    const { container } = render(<NotificationItem type="default" value="test" />);
-    expect(container.innerHTML).toContain('<li data-notification-type="default">test</li>');
-  });
-
-  it('renders correct html based on html prop', () => {
-    const { container } = render(
-      <NotificationItem html={{ __html: '<u>test</u>' }} type="default" value="test" />
-    );
-    expect(container.innerHTML).toContain('<li data-notification-type="default"><u>test</u>test</li>');
+  it('should render the proper HTML', () => {
+    const wrapper = shallow(<NotificationItem {...minprops} />)
+    expect(wrapper.find(li).prop('type')).toBe('default');
+    expect(wrapper.find(li).prop('html')).toBe=({{ __html: '<u>test</u>' }});
   });
 });
