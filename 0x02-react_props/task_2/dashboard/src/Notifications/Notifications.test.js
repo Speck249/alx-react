@@ -10,9 +10,9 @@ describe('Notifications component', () => {
 
   it('should render NotificationItem elements', () => {
     const wrapper = shallow(<Notifications />);
-    const notificationItems = wrapper.find(NotificationItem);
+    const newItem = wrapper.find(NotificationItem);
 
-    expect(notificationItems).toHaveLength(3);
+    expect(newItem).toHaveLength(3);
   });
 
   it('should render the title of an unordered list', () => {
@@ -24,8 +24,8 @@ describe('Notifications component', () => {
 
   it('should render the right HTML in the first NotificationItem element', () => {
     const wrapper = shallow(<Notifications />);
-    const firstNotification = wrapper.find(NotificationItem).first();
-    const html = firstNotification.prop('html');
+    const notification = wrapper.find(NotificationItem).first();
+    const html = notification.prop('html');
 
     expect(html).toEqual({ __html: '<strong>Important notification</strong>' });
   });
