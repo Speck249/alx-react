@@ -26,7 +26,7 @@ function CourseListRow({ isHeader = false, textFirstCell, textSecondCell = null 
       </tr>
     );
   }
-}
+};
 
 CourseListRow.propTypes = {
   isHeader: PropTypes.bool,
