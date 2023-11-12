@@ -41,4 +41,16 @@ describe('App component', () => {
     const wrapper = shallow(<Footer />);
     expect(wrapper.text()).toContain("Copyright");
   });
+  it('should not display CourseList when isLoggedIn is false', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(CourseList)).toHaveLength(0);
+  });
+  it('should not include the Login component', () => {
+    const wrapper = shallow(<App isLoggedIn={true} />);
+    expect(wrapper.find(Login)).toHaveLength(0);
+  });
+  it('should include the CourseList component', () => {
+    const wrapper = shallow(<App isLoggedIn={true} />);
+    expect(wrapper.find(CourseList)).toHaveLength(1);
+  });
 });
