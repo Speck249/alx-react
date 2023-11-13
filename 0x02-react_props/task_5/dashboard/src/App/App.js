@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer.js';
 import Notifications from '../Notifications/Notifications.js';
 import PropTypes from 'prop-types';
 import CourseList from '../CourseList/CourseList.js';
+import { getLatestNotification } from '../utils/utils.js';
 
 const listCourses = [
   { id: 1, name: 'ES6', credit: 60 },
@@ -12,10 +13,16 @@ const listCourses = [
   { id: 3, name: 'React', credit: 40 },
 ];
 
+const listNotifications = [
+  { id: 1, type: 'default', value: 'new course available' },
+  { id: 2, type: 'urgent', value: 'new course available' },
+  { id: 3, type: 'urgent', html: getLatestNotification() },
+];
+
 const App = ({ isLoggedIn = false }) => {
   return (
     <>
-      <Notifications />
+      <Notifications listNotifications={listNotifications} />
       <div className='App'>
         <Header />
         <div className='App-body'>
