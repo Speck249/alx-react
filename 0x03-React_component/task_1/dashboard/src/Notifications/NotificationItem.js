@@ -5,7 +5,7 @@ import './NotificationItem.css';
 const NotificationItem = ({ type, html = '__html', value }) => {
   return (
     <li data-notification-type={type}
-      dangerouslySetInnerHTML={{ __html: html }}>{value}</li>
+      dangerouslySetInnerHTML={{ __html: html }}
   );
 };
 
