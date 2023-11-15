@@ -1,10 +1,21 @@
 import React from 'react';
-import './Login.css';
+import { StyleSheet, css } from 'aphrodite';
+
+const styles = StyleSheet.create({
+  appBody: {
+    fontFamily: 'Aktivgrotesk, Arial, sans-serif',
+    fontSize: '0.8rem',
+    textAlign: 'left',
+    paddingTop: '2em',
+    paddingLeft: '1.7em',
+    borderTop: '3px solid #e1003c',
+  },
+});
 
 function Login() {
   return (
     <>
-      <div className='App-body'>
+      <div className={css(styles.appBody)}>
         <p>Login to access the full dashboard</p>
         <label htmlFor='email' id='email'>Email: </label>
         <input id='email' name='email' type='email' />
