@@ -7,6 +7,22 @@ const styles = StyleSheet.create({
   notifications: {
     border: '2px dashed #e1003c',
     padding: '1.2em',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    margin: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    fontSize: '20px',
+  },
+  ul: {
+    margin: 0,
+    padding: 0,
+    listStyle: 'none',
   },
   closeIcon: {
     display: 'inline',
@@ -50,7 +66,7 @@ class Notifications extends React.Component {
         ) : (
           <>
             <p>Here are the notifications:</p>
-            <ul>
+            <ul className={css(styles.ul)}>
               {listNotifications.map((notification) => (
                 <NotificationItem
                   key={notification.id}
