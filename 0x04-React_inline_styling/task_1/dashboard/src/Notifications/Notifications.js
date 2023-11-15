@@ -1,6 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { StyleSheet, css } from 'aphrodite';
 import NotificationItem from './NotificationItem';
+
+const styles = StyleSheet.create({
+  notifications: {
+    border: '2px dashed #e1003c',
+    padding: '1.2em',
+  },
+  closeIcon: {
+    display: 'inline',
+    width: '7px',
+    height: '8px',
+    margin: '0',
+    padding: '0',
+  },
+  listItem: {
+    fontFamily: "'Times New Roman', Times, serif",
+  },
+  defaultListItem: {
+    color: 'blue',
+  },
+  urgentListItem: {
+    color: '#e1003c',
+  },
+});
 
 class Notifications extends React.Component {
   constructor(props) {
@@ -20,7 +44,7 @@ class Notifications extends React.Component {
     const { listNotifications } = this.props;
 
     return (
-      <div className='Notifications'>
+      <div className={css(styles.notifications)}>
         {listNotifications.length === 0 ? (
           <p>No new notifications</p>
         ) : (
@@ -35,6 +59,10 @@ class Notifications extends React.Component {
                   html={notification.html}
                   markAsRead={this.markAsRead}
                   id={notification.id}
+                  className={css(
+                    styles.listItem,
+                    notification.type === 'default' ? styles.defaultListItem : styles.urgentListItem
+                  )}
                 />
               ))}
             </ul>
