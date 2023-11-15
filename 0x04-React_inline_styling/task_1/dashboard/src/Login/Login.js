@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
   appBody: {
     fontFamily: 'Aktivgrotesk, Arial, sans-serif',
     fontSize: '0.8rem',
+    margin: '1em',
     textAlign: 'left',
     paddingTop: '2em',
     paddingLeft: '1.7em',
