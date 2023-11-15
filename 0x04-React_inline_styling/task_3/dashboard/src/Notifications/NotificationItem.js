@@ -5,6 +5,10 @@ import { StyleSheet, css } from 'aphrodite';
 const styles = StyleSheet.create({
   listItem: {
     fontFamily: "'Times New Roman', Times, serif",
+    width: '100%',
+    borderBottom: '1px solid black',
+    fontSize: '20px',
+    padding: '10px 8px',
   },
   defaultListItem: {
     color: 'blue',
