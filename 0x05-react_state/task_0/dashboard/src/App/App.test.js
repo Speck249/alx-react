@@ -57,4 +57,28 @@ describe('App component', () => {
     const wrapper = shallow(<App isLoggedIn={true} />);
     expect(wrapper.find(CourseList)).toHaveLength(1);
   });
+
+  it('should have default state displayDrawer set to false', () => {
+    const { getByTestId } = render(<App />);
+    const appComponent = getByTestId('app-component');
+    expect(appComponent).toHaveAttribute('data-display-drawer', 'false');
+  });
+
+  it('should update state displayDrawer to true after calling handleDisplayDrawer', () => {
+    const { getByTestId } = render(<App />);
+    const appComponent = getByTestId('app-component');
+    const displayDrawerButton = getByTestId('display-drawer-button');
+    fireEvent.click(displayDrawerButton);
+    expect(appComponent).toHaveAttribute('data-display-drawer', 'true');
+  });
+
+  it('should update state displayDrawer to false after calling handleHideDrawer', () => {
+    const { getByTestId } = render(<App />);
+    const appComponent = getByTestId('app-component');
+    const displayDrawerButton = getByTestId('display-drawer-button');
+    const hideDrawerButton = getByTestId('hide-drawer-button');
+    fireEvent.click(displayDrawerButton);
+    fireEvent.click(hideDrawerButton);
+    expect(appComponent).toHaveAttribute('data-display-drawer', 'false');
+  });
 });
