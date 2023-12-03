@@ -1,17 +1,25 @@
 import React from 'react';
-import Header from '../Header/Header.js';
-import Login from '../Login/Login.js';
-import Footer from '../Footer/Footer.js';
-import Notifications from '../Notifications/Notifications.js';
 import PropTypes from 'prop-types';
-import CourseList from '../CourseList/CourseList.js';
-import { getLatestNotification } from '../utils/utils.js';
-import BodySectionWithMarginBottom from '../BodySectionWithMarginBottom';
+import Notifications from '../Notifications/Notifications';
+import Header from '../Header/Header';
+import BodySection from '../BodySection/BodySection';
+import Login from '../Login/Login';
+import CourseList from '../CourseList/CourseList';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
+import Footer from '../Footer/Footer';
+import { getLatestNotification } from '../utils/utils';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      displayDrawer: false
+    };
+
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
+    this.handleHideDrawer = this.handleHideDrawer.bind(this);
   }
 
   componentDidMount() {
@@ -30,7 +38,17 @@ class App extends React.Component {
     }
   }
 
+  handleDisplayDrawer() {
+    this.setState({ displayDrawer: true });
+  }
+
+  handleHideDrawer() {
+    this.setState({ displayDrawer: false });
+  }
+
   render() {
+    const { isLoggedIn } = this.props;
+
     const listCourses = [
       { id: 1, name: 'ES6', credit: 60 },
       { id: 2, name: 'Webpack', credit: 20 },
@@ -45,21 +63,28 @@ class App extends React.Component {
 
     return (
       <>
-        <Notifications listNotifications={listNotifications} />
+        <Notifications
+          listNotifications={listNotifications}
+          displayDrawer={this.state.displayDrawer}
+          handleDisplayDrawer={this.handleDisplayDrawer}
+          handleHideDrawer={this.handleHideDrawer}
+        />
         <div className='App'>
           <Header />
           <div className='App-body'>
-            {this.props.isLoggedIn === false ? (
-              <BodySectionWithMarginBottom title="Log in to continue">
+            {!isLoggedIn ? (
+              <BodySectionWithMarginBottom title='Log in to continue'>
                 <Login />
               </BodySectionWithMarginBottom>
             ) : (
-              <BodySectionWithMarginBottom title="Course list">
+              <BodySectionWithMarginBottom title='Course list'>
                 <CourseList listCourses={listCourses} />
               </BodySectionWithMarginBottom>
             )}
-            <BodySection title="News from the School">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum aliquet risus, eget gravida dui ullamcorper non. Mauris ut enim in quam pharetra vulputate. Suspendisse faucibus libero et lectus vulputate, sit amet feugiat velit gravida. Sed id justo eget nisl semper semper. Donec lacinia, felis quis tempor tincidunt, mauris nunc pulvinar nunc, sed mollis metus enim nec mauris. Curabitur sit amet justo ut mi finibus tincidunt et in diam. Nam metus quam, consectetur id ipsum sed, viverra feugiat dui.</p>
+            <BodySection title='News from the School'>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum aliquet risus, eget gravida dui ullamcorper non. Mauris ut enim in quam pharetra vulputate. Suspendisse faucibus libero et lectus vulputate, sit amet feugiat velit gravida. Sed id justo eget nisl semper semper. Donec lacinia, felis quis tempor tincidunt, mauris nunc pulvinar nunc, sed mollis metus enim nec mauris. Curabitur sit amet justo ut mi finibus tincidunt et in diam. Nam metus quam, consectetur id ipsum sed, viverra feugiat dui.
+              </p>
             </BodySection>
           </div>
           <div className='App-footer'>
