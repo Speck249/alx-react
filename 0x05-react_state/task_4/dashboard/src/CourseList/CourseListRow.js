@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
   headerCell: {
     fontWeight: 'bold',
   },
+  rowChecked: {
+    backgroundColor: '#e6e4e4',
+  },
 });
 
 function CourseListRow({ isHeader = false, textFirstCell, textSecondCell = null }) {
