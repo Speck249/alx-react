@@ -12,15 +12,13 @@ class Notifications extends React.Component {
     console.log(`Notification ${id} has been marked as read.`);
   }
 
-  shouldComponentUpdate(nextProps) {
-    return nextProps.listNotifications.length > this.props.listNotifications.length;
-  }
-
   render() {
-    const { listNotifications } = this.props;
+    const { listNotifications, handleDisplayDrawer, handleHideDrawer } = this.props;
 
     return (
       <div className='Notifications'>
+        <button onClick={handleDisplayDrawer}>Your notifications</button>
+        <button onClick={handleHideDrawer}>Close</button>
         {listNotifications.length === 0 ? (
           <p>No new notifications</p>
         ) : (
@@ -54,6 +52,8 @@ Notifications.propTypes = {
       html: PropTypes.string,
     })
   ),
+  handleDisplayDrawer: PropTypes.func.isRequired,
+  handleHideDrawer: PropTypes.func.isRequired,
 };
 
 Notifications.defaultProps = {
