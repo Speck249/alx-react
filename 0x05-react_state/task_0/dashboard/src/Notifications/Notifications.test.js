@@ -102,4 +102,36 @@ describe('Notifications component', () => {
     });
     expect(shouldUpdate).toBe(true);
   });
+  
+  it('should call handleDisplayDrawer when clicking on the menu item', () => {
+    const handleDisplayDrawerMock = jest.fn();
+    const { getByText } = render(
+      <Notifications
+        listNotifications={[]}
+        handleDisplayDrawer={handleDisplayDrawerMock}
+        handleHideDrawer={() => {}}
+      />
+    );
+
+    const menuItem = getByText('Your notifications');
+    fireEvent.click(menuItem);
+
+    expect(handleDisplayDrawerMock).toHaveBeenCalled();
+  });
+
+  it('should call handleHideDrawer when clicking on the button', () => {
+    const handleHideDrawerMock = jest.fn();
+    const { getByText } = render(
+      <Notifications
+        listNotifications={[]}
+        handleDisplayDrawer={() => {}}
+        handleHideDrawer={handleHideDrawerMock}
+      />
+    );
+
+    const closeButton = getByText('Close');
+    fireEvent.click(closeButton);
+
+    expect(handleHideDrawerMock).toHaveBeenCalled();
+  });
 });
