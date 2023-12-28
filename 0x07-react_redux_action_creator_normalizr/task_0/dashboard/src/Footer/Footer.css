@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+.Footer {
+  height: 60vh;
+  font-family: Aktivgrotesk, Arial, sans-serif;
+}
+
+.App-footer {
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  text-align: center;
+  font-style: italic;
+}
