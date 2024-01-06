@@ -1,0 +1,10 @@
+{
+  // Babel configuration ensures JavaScript code and any React-specific syntax
+  // is transpiled to meet compatible version that can run in different environments. 
+
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+
+  // @babel/preset-env enables Babel to transform modern JavaScript syntax into older
+  // versions of JavaScript widely supported by different browsers and environments.
+  // @babel/preset-react enables Babel to transform JSX syntax into plain JavaScript. 
+}
